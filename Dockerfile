@@ -12,7 +12,6 @@ ENV KC_HTTP_ENABLED=true
 
 # Configure a database vendor
 ENV KC_DB=postgres
-ENV KC_DB_URL=${keycloak-db.JDBC_DATABASE_URL}
 
 ENTRYPOINT [ "/opt/keycloak/bin/kc.sh" ]
 CMD [ "start-dev" ]
