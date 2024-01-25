@@ -1,4 +1,9 @@
-FROM quay.io/keycloak/keycloak:latest as builder
+FROM quay.io/keycloak/keycloak:latest
+
+ARG db.HOSTNAME
+ARG db.PORT
+ARG db.USERNAME
+ARG db.PASSWORD
 
 # Enable health and metrics support
 ENV KC_HEALTH_ENABLED=true
@@ -13,9 +18,7 @@ ENV KC_HTTP_ENABLED=true
 # Configure a database vendor
 ENV KC_DB=postgres
 
-WORKDIR /opt/keycloak
-
-# Get the DB connection credentials from the environment
+# change these values to point to a running postgres instance
 ENV KC_DB_URL_HOST=${db.HOSTNAME}
 ENV KC_DB_URL_PORT=${db.PORT}
 ENV KC_DB_USERNAME=${db.USERNAME}
