@@ -14,4 +14,4 @@ ENV KC_HTTP_ENABLED=true
 ENV KC_DB=postgres
 
 ENTRYPOINT [ "/opt/keycloak/bin/kc.sh" ]
-CMD [ "start", "--optimized" ]
+CMD [ "start" ]
