@@ -4,6 +4,9 @@ FROM quay.io/keycloak/keycloak:latest
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 
+# Enable various features
+ENV KC_FEATURES="admin2,account2,impersonation"
+
 # Enable edge mode because we are behind a proxy
 ENV KC_PROXY=edge
 
