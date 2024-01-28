@@ -18,9 +18,9 @@ ENV KC_HTTP_MAX_QUEUED_REQUESTS=100
 
 # Whilst we are only running a single instance of Keycloak, we do not need
 # to bother with a distributed cache, so here just force local caching only.
-#ENV KC_CACHE=local
+ENV KC_CACHE=local
 # Test out using a distributed cache with 3 instances of Keycloak
-ENV KC_CACHE=ispn
+#ENV KC_CACHE=ispn
 
 ENTRYPOINT [ "/opt/keycloak/bin/kc.sh" ]
 CMD [ "start" ]
