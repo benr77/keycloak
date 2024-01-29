@@ -4,8 +4,9 @@ FROM quay.io/keycloak/keycloak:latest
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 
-# Enable various features
-ENV KC_FEATURES="admin2,account2,impersonation"
+# Enable/disable various features
+#ENV KC_FEATURES=""
+#ENV KC_FEATURES_DISABLED=""
 
 # Enable edge mode because we are behind a proxy
 ENV KC_PROXY=edge
@@ -22,8 +23,6 @@ ENV KC_HTTP_MAX_QUEUED_REQUESTS=100
 # Whilst we are only running a single instance of Keycloak, we do not need
 # to bother with a distributed cache, so here just force local caching only.
 ENV KC_CACHE=local
-# Test out using a distributed cache with 3 instances of Keycloak
-#ENV KC_CACHE=ispn
 
 ENTRYPOINT [ "/opt/keycloak/bin/kc.sh" ]
 CMD [ "start" ]
